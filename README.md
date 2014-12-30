@@ -11,4 +11,4 @@ What's included so far:
  * HAProxy (routes by `Host` header)
   * [blog](https://github.com/abesto/blog) (host `abesto.net`)
   * [are-you-board](https://github.com/abesto/are-you-board) (host `board.abesto.net`)
-   * A standalone Redis container serving as the database for `are-you-board`
+    * A standalone Redis container serving as the database for `are-you-board`
