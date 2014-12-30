@@ -1,0 +1,4 @@
+[submodule "blog"]
+	path = blog
+	url = git@github.com:abesto/blog.git
+	branch = master
