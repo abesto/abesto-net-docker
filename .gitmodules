@@ -2,3 +2,7 @@
 	path = blog
 	url = git@github.com:abesto/blog.git
 	branch = master
+[submodule "are-you-board"]
+	path = are-you-board
+	url = git@github.com:abesto/are-you-board
+	branch = master
