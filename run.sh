@@ -7,4 +7,4 @@ else
 fi
 
 docker run -d --name blog abesto/blog
-docker run -d --name haproxy -p 80:80 --link blog:blog -v$ngx_log:/var/log/nginx abesto/abesto-net-haproxy
+docker run -d --name haproxy -p 80:80 --link blog:blog -v $ngx_log:/var/log/nginx abesto/abesto-net-haproxy
