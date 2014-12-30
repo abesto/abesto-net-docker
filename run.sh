@@ -7,7 +7,6 @@ else
 	ngx_log=$PWD/log/nginx
 	redis_store=$PWD/data/redis
 	mkdir -p $ngx_log $redis_store
-	echo "Mounted volumes are under $root"
 fi
 
 set -x
