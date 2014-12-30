@@ -1,2 +1,2 @@
 #!/bin/bash
-docker rm -f blog are-you-board are-you-board-redis haproxy
+docker rm -f blog mastermind are-you-board are-you-board-redis haproxy

@@ -16,6 +16,11 @@ docker run -d --name blog \
 	-v $ngx_log:/var/log/nginx \
 	abesto/blog
 
+# Mastermind
+docker run -d --name mastermind \
+	-v $ngx_log:/var/log/nginx \
+	abesto/mastermind
+
 # Are you board?
 docker run -d --name are-you-board-redis \
 	-v $redis_store/are-you-board:/data \
@@ -31,4 +36,5 @@ docker run -d --name haproxy \
 	-p 80:80 \
 	--link blog:blog \
 	--link are-you-board:are-you-board \
+	--link mastermind:mastermind \
 	 abesto/abesto-net-haproxy

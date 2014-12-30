@@ -6,3 +6,7 @@
 	path = blog
 	url = https://github.com/abesto/blog.git
 	branch = master
+[submodule "mastermind"]
+	path = mastermind
+	url = https://github.com/abesto/mastermind.git
+	branch = master
