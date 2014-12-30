@@ -22,6 +22,6 @@ A requst travels down this path:
 
  * HAProxy (routes by `Host` header)
   * [blog](https://github.com/abesto/blog) (host [abesto.net](http://abesto.net))
-  * [are-you-board](https://github.com/abesto/are-you-board) (host [board.abesto.net](board.abesto.net))
+  * [are-you-board](https://github.com/abesto/are-you-board) (host [board.abesto.net](http://board.abesto.net))
     * A standalone Redis container serving as the database for `are-you-board`
-  * [mastermind](https://github.com/abesto/mastermind) (host [mastermind.abesto.net](mastermind.abesto.net))
+  * [mastermind](https://github.com/abesto/mastermind) (host [mastermind.abesto.net](http://mastermind.abesto.net))
