@@ -1,8 +1,8 @@
-[submodule "blog"]
-	path = blog
-	url = git@github.com:abesto/blog.git
-	branch = master
 [submodule "are-you-board"]
 	path = are-you-board
-	url = git@github.com:abesto/are-you-board
+	url = https://github.com/abesto/are-you-board.git
+	branch = master
+[submodule "blog"]
+	path = blog
+	url = https://github.com/abesto/blog.git
 	branch = master
