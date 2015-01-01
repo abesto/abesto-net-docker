@@ -25,3 +25,4 @@ A requst travels down this path:
   * [are-you-board](https://github.com/abesto/are-you-board) (host [board.abesto.net](http://board.abesto.net))
     * A standalone Redis container serving as the database for `are-you-board`
   * [mastermind](https://github.com/abesto/mastermind) (host [mastermind.abesto.net](http://mastermind.abesto.net))
+  * [algo](https://github.com/abesto/algo) (host [algo.abesto.net](http://algo.abesto.net))

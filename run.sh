@@ -31,10 +31,14 @@ docker run -d --name are-you-board \
 	--link are-you-board-redis:redis \
 	abesto/are-you-board
 
+# algo
+docker run -d --name algo abesto/algo
+
 # HAProxy
 docker run -d --name haproxy \
 	-p 80:80 \
 	--link blog:blog \
 	--link are-you-board:are-you-board \
 	--link mastermind:mastermind \
+	--link algo:algo \
 	 abesto/abesto-net-haproxy

@@ -10,3 +10,7 @@
 	path = mastermind
 	url = https://github.com/abesto/mastermind.git
 	branch = master
+[submodule "algo"]
+	path = algo
+	url = https://github.com/abesto/algo.git
+	branch = nodejs
