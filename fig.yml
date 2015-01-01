@@ -1,0 +1,34 @@
+blog:
+  image: abesto/blog
+  volumes:
+    - $nginxlogdir:/var/log/nginx
+
+mastermind:
+  image: abesto/mastermind
+  volumes:
+    - $nginxlogdir:/var/log/nginx
+
+boardredis:
+  image: dockerfile/redis
+  volumes:
+    - $redisstore/are-you-board:/data
+  command: redis-server --appendonly yes
+board:
+  image: abesto/are-you-board
+  links:
+    - boardredis:redis
+
+algo:
+  image: abesto/algo
+
+haproxy:
+  image: dockerfile/haproxy
+  ports:
+    - "80:80"
+  volumes:
+    - haproxy:/haproxy-override
+  links:
+    - blog
+    - mastermind
+    - algo
+    - board:are-you-board

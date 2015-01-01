@@ -1,11 +1,16 @@
 Work in progress, dockerifying [abesto.net](http://abesto.net).
 
+Requirements:
+ - [Docker](https://www.docker.com/)
+ - [fig](http://www.fig.sh/)
+
 ## Running locally
 ```sh
-./pull.sh  # Pull the latest version of all relevant docker repos. Also do this to update versions.
-./run.sh   # Start the whole shebang
+. ./dev.env # Load env variables for volume mount points for running locally (there's also prod.env)
+fig pull    # Pull the latest version of all relevant docker repos. Also do this to update versions.
+fug up -d   # Start the whole shebang
 curl $(boot2docker ip) -H 'Host: abesto.net'  # Look at the blog; use 127.0.0.1 if on Linux and not using boot2docker
-./stop.sh  # Stop and delete containers
+fig stop    # Stop and delete containers
 ```
 
 ## In production
@@ -13,7 +18,7 @@ curl $(boot2docker ip) -H 'Host: abesto.net'  # Look at the blog; use 127.0.0.1 
 Add this line to your hosts file to see it in "production":
 
 ```
-212.71.254.167 abesto.net board.abesto.net mastermind.abesto.net
+212.71.254.167 abesto.net board.abesto.net mastermind.abesto.net algo.abesto.net
 ```
 
 ## What's included so far
