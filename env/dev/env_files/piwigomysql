@@ -1,0 +1,4 @@
+MYSQL_PASSWORD=piwigo_dev_pw
+MYSQL_ROOT_PASSWORD=piwigo_dev_root_pw
+MYSQL_USER=piwigo
+MYSQL_DATABASE=piwigo

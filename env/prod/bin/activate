@@ -1,0 +1,21 @@
+docker_deactivate () {
+    unset DOCKER_ENV
+    unset REDIS_STORE
+    unset NGINX_LOGDIR
+    rm -f env_files
+    [ "$1" = 'nondestructive' ] || unset -f docker_deactivate
+}
+
+docker_deactivate nondestructive
+
+ln -s env/prod/env_files env_files
+
+export DOCKER_ENV=prod
+export ENV_FILES=$DOCKER_ENV/env_files
+
+export REDIS_STORE=/opt/redis
+export NGINX_LOGDIR=/var/log/nginx
+
+export LYCHEE_DATADIR=/var/lib/lychee/data
+export LYCHEE_UPLOADS=/var/lib/lychee/uploads
+export LYCHEE_MYSQL=/var/lib/lychee/mysql

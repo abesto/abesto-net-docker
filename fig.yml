@@ -1,25 +1,42 @@
 blog:
   image: abesto/blog
   volumes:
-    - $nginxlogdir:/var/log/nginx
+    - $NGINX_LOGDIR:/var/log/nginx
+  restart: always
 
 mastermind:
   image: abesto/mastermind
   volumes:
-    - $nginxlogdir:/var/log/nginx
+    - $NGINX_LOGDIR:/var/log/nginx
+  restart: always
 
 boardredis:
   image: dockerfile/redis
   volumes:
-    - $redisstore/are-you-board:/data
+    - $REDIS_STORE/are-you-board:/data
   command: redis-server --appendonly yes
+  restart: always
 board:
   image: abesto/are-you-board
   links:
     - boardredis:redis
+  restart: always
 
 algo:
   image: abesto/algo
+  restart: always
+
+lycheedata:
+  image: busybox
+  volumes:
+    - /data/
+    - /uploads/
+    - /var/lib/mysql/
+lychee:
+  image: kdelfour/lychee-docker
+  volumes_from:
+    - lycheedata
+  restart: always
 
 haproxy:
   image: dockerfile/haproxy
@@ -32,3 +49,5 @@ haproxy:
     - mastermind
     - algo
     - board:are-you-board
+    - lychee
+  restart: always
