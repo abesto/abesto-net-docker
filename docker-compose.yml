@@ -15,6 +15,7 @@ mastermind:
   volumes:
     - $NGINX_LOGDIR:/var/log/nginx
   restart: always
+
 ####################
 # board.abesto.net #
 ####################
