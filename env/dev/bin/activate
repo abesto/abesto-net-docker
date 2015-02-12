@@ -18,6 +18,8 @@ export NGINX_LOGDIR=volumes/log/nginx
 
 export LYCHEE_DATADIR=volumes/data/lychee-data
 export LYCHEE_UPLOADS=volumes/data/lychee-uploads
-export LYCHEE_MYSQL=volumes/data/lychee-mysql
 
 export STATIC_DATA=volumes/data/static
+
+mkdir -p $LYCHEE_DATADIR $LYCHEE_UPLOADS/{big,import,thumb}
+chmod o+xw $LYCHEE_DATADIR $LYCHEE_UPLOADS/{big,import,thumb}  # yes, security, sorry

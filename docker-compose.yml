@@ -44,7 +44,7 @@ lycheedata:
   volumes:
     - $LYCHEE_DATADIR:/data/
     - $LYCHEE_UPLOADS:/uploads/
-    - /var/lib/mysql/
+  command: /bin/true
 
 lychee:
   image: kdelfour/lychee-docker
