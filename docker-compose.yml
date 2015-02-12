@@ -42,7 +42,7 @@ algo:
 lycheedata:
   image: kdelfour/lychee-docker
   volumes:
-    - $LYCHEE_DATA:/data/
+    - $LYCHEE_DATADIR:/data/
     - $LYCHEE_UPLOADS:/uploads/
     - /var/lib/mysql/
 
