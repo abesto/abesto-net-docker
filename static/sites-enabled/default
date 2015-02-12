@@ -1,0 +1,11 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	server_name releases.abesto.net;
+	server_name static.abesto.net;
+
+	autoindex on;
+}

@@ -60,6 +60,7 @@ static:
   volumes:
     - $STATIC_DATA:/var/www/html
     - $NGINX_LOGDIR:/var/log/nginx
+    - static/sites-enabled:/etc/nginx/sites-enabled
 
 # Pull it all together
 haproxy:
