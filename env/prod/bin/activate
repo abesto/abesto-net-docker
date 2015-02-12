@@ -18,5 +18,10 @@ export NGINX_LOGDIR=/var/log/nginx
 
 export LYCHEE_DATADIR=/var/lib/lychee/data
 export LYCHEE_UPLOADS=/var/lib/lychee/uploads
+export LYCHEE_MYSQL=/var/lib/lychee/mysql
 
 export STATIC_DATA=/srv/static
+
+mkdir -p $LYCHEE_DATADIR $LYCHEE_UPLOADS/{big,import,thumb} $LYCHE_MYSQL
+chown -R www-data $LYCHEE_DATADIR $LYCHEE_UPLOADS
+chown -R 102 $LYCHEE_MYSQL  # suboptimal, should do UIDs more smartly

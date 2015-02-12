@@ -44,6 +44,7 @@ lycheedata:
   volumes:
     - $LYCHEE_DATADIR:/data/
     - $LYCHEE_UPLOADS:/uploads/
+    - $LYCHEE_MYSQL:/var/lib/mysql
   command: /bin/true
 
 lychee:
