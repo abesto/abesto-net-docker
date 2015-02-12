@@ -1,43 +1,67 @@
+##############
+# abesto.net #
+##############
 blog:
   image: abesto/blog
   volumes:
     - $NGINX_LOGDIR:/var/log/nginx
+  restart: always
 
+#########################
+# mastermind.abesto.net #
+#########################
 mastermind:
   image: abesto/mastermind
   volumes:
     - $NGINX_LOGDIR:/var/log/nginx
-
+  restart: always
+####################
+# board.abesto.net #
+####################
 boardredis:
   image: dockerfile/redis
   volumes:
     - $REDIS_STORE/are-you-board:/data
   command: redis-server --appendonly yes
+  restart: always
+
 board:
   image: abesto/are-you-board
   links:
     - boardredis:redis
 
+###################
+# algo.abesto.net #
+###################
 algo:
   image: abesto/algo
 
+#####################
+# lychee.abesto.net #
+#####################
 lycheedata:
-  image: busybox
+  image: tianon/true
   volumes:
     - $LYCHEE_DATA:/data/
     - $LYCHEE_UPLOADS:/uploads/
     - /var/lib/mysql/
+
 lychee:
   image: kdelfour/lychee-docker
   volumes_from:
     - lycheedata
 
+#######################
+# static.abesto.net   #
+# releases.abesto.net #
+#######################
 static:
   image: dockerfile/nginx
   volumes:
     - $STATIC_DATA:/var/www/html
     - $NGINX_LOGDIR:/var/log/nginx
 
+# Pull it all together
 haproxy:
   image: dockerfile/haproxy
   ports:
