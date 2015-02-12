@@ -40,7 +40,7 @@ algo:
 # lychee.abesto.net #
 #####################
 lycheedata:
-  image: tianon/true
+  image: kdelfour/lychee-docker
   volumes:
     - $LYCHEE_DATA:/data/
     - $LYCHEE_UPLOADS:/uploads/
