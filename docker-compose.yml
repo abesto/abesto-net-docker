@@ -2,7 +2,7 @@
 # abesto.net #
 ##############
 blog:
-  image: abesto/blog
+  image: abesto/blog:latest
   volumes:
     - $NGINX_LOGDIR:/var/log/nginx
   restart: always
@@ -11,7 +11,7 @@ blog:
 # mastermind.abesto.net #
 #########################
 mastermind:
-  image: abesto/mastermind
+  image: abesto/mastermind:latest
   volumes:
     - $NGINX_LOGDIR:/var/log/nginx
   restart: always
@@ -20,14 +20,14 @@ mastermind:
 # board.abesto.net #
 ####################
 boardredis:
-  image: dockerfile/redis
+  image: redis:latest
   volumes:
     - $REDIS_STORE/are-you-board:/data
   command: redis-server --appendonly yes
   restart: always
 
 board:
-  image: abesto/are-you-board
+  image: abesto/are-you-board:latest
   links:
     - boardredis:redis
 
@@ -35,13 +35,13 @@ board:
 # algo.abesto.net #
 ###################
 algo:
-  image: abesto/algo
+  image: abesto/algo:latest
 
 #####################
 # lychee.abesto.net #
 #####################
 lycheedata:
-  image: kdelfour/lychee-docker
+  image: kdelfour/lychee-docker:latest
   volumes:
     - $LYCHEE_DATADIR:/data/
     - $LYCHEE_UPLOADS:/uploads/
@@ -49,7 +49,7 @@ lycheedata:
   command: /bin/true
 
 lychee:
-  image: kdelfour/lychee-docker
+  image: kdelfour/lychee-docker:latest
   volumes_from:
     - lycheedata
 
@@ -58,19 +58,19 @@ lychee:
 # releases.abesto.net #
 #######################
 static:
-  image: dockerfile/nginx
+  image: nginx:latest
   volumes:
     - $STATIC_DATA:/var/www/html
     - $NGINX_LOGDIR:/var/log/nginx
-    - static/sites-enabled:/etc/nginx/sites-enabled
+    - static/etc/nginx/conf.d:/etc/nginx/conf.d
 
 # Pull it all together
 haproxy:
-  image: dockerfile/haproxy
+  image: haproxy:latest
   ports:
     - "80:80"
   volumes:
-    - haproxy:/haproxy-override
+    - haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
   links:
     - blog
     - mastermind
