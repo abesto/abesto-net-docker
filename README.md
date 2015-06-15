@@ -16,6 +16,7 @@ docker-compose stop    # Stop and delete containers
 ## What's included
 
 ![graph](docker-compose.jpg)
+Graph generated with https://github.com/abesto/docker-compose-graphviz
 
  * HAProxy (routes by `Host` header)
   * [blog](https://github.com/abesto/blog) (host [abesto.net](http://abesto.net))
