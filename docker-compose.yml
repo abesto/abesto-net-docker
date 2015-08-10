@@ -71,10 +71,11 @@ haproxy:
     - "80:80"
   volumes:
     - haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    - haproxy/unknown-domain.html:/usr/local/etc/haproxy/unknown-domain.html:ro
   links:
     - blog
     - mastermind
     - algo
-    - board:are-you-board
+    - board
     - lychee
     - static
