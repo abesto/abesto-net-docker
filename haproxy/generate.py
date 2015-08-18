@@ -22,7 +22,7 @@ def domain_routing():
 
 def my_domain_acl():
     return '\n'.join(indent([
-        host_acl(acl_name='my-domain', subdomain=None, domain=domain)
+        host_acl(acl_name='my-domain', subdomain=None, domain=domain, function='hdr_end')
         for domain in settings.domains]))
 
 def backends():
@@ -39,8 +39,8 @@ def indent(lines):
     return ['    ' + line if len(line.strip()) > 0 else ''
             for line in lines]
 
-def host_acl(acl_name, subdomain, domain):
-    retval = 'acl {service}-acl hdr(Host) -i '.format(service=acl_name)
+def host_acl(acl_name, subdomain, domain, function='hdr'):
+    retval = 'acl {service}-acl {function}(Host) -i '.format(service=acl_name, function=function)
     if subdomain is not None:
         retval += subdomain + '.'
     retval += domain
