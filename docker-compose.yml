@@ -2,7 +2,7 @@
 # abesto.net #
 ##############
 blog:
-  image: abesto/blog:latest
+  image: quay.io/abesto/blog:latest
   volumes:
     - $NGINX_LOGDIR:/var/log/nginx
   restart: always
