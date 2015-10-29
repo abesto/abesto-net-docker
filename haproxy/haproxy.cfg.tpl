@@ -3,14 +3,16 @@ defaults
     timeout server 5000
     timeout connect 1000
 
-listen stats :1936
+listen stats
+    bind :1936
     mode http
     stats enable
     stats hide-version
     stats realm Haproxy\ Statistics
     stats uri /
 
-frontend all-frn 0.0.0.0:80
+frontend all-frn
+    bind 0.0.0.0:80
     # The huge timeout is so that websocket connections can go through haproxy
     # In the future websocket connections should go through a separate port,
     # directly to the appropriate application
