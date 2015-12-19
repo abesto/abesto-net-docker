@@ -25,3 +25,5 @@ export STATIC_DATA=/srv/static
 mkdir -p $LYCHEE_DATADIR $LYCHEE_UPLOADS/{big,import,thumb} $LYCHE_MYSQL
 chown -R www-data $LYCHEE_DATADIR $LYCHEE_UPLOADS
 chown -R 102 $LYCHEE_MYSQL  # suboptimal, should do UIDs more smartly
+
+export SSL_CERT=/root/haproxy.pem

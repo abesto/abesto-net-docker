@@ -62,16 +62,18 @@ static:
   volumes:
     - $STATIC_DATA:/var/www/html
     - $NGINX_LOGDIR:/var/log/nginx
-    - static/etc/nginx/conf.d:/etc/nginx/conf.d
+    - ./static/etc/nginx/conf.d:/etc/nginx/conf.d
 
 # Pull it all together
 haproxy:
   image: haproxy:latest
   ports:
     - "80:80"
+    - "443:443"
   volumes:
-    - haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
-    - haproxy/unknown-domain.html:/usr/local/etc/haproxy/unknown-domain.html:ro
+    - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    - ./haproxy/unknown-domain.html:/usr/local/etc/haproxy/unknown-domain.html:ro
+    - $SSL_CERT:/cert.pem
   links:
     - blog
     - mastermind
