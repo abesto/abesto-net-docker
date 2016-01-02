@@ -1,3 +1,5 @@
+**Not live anymore, has been migrated to various AWS services**
+
 abesto.net and *.abesto.net, run on Docker. (The host happens to be Ubuntu 14.04.1 at Linode)
 
 Requirements:
